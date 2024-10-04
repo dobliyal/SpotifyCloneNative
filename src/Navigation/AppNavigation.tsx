@@ -13,7 +13,8 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import auth from '@react-native-firebase/auth';
 import {setUser} from '../Screens/ScreenSignin/redux/authSlice';
 import ScreenHome from '../Screens/ScreenHome/ScreenHome';
-
+import BottomNavigation from './BottomNavigation';
+import ScreenMusicPage from '../Screens/ScreenMusicPage/ScreenMusicPage';
 const AuthStack = createNativeStackNavigator<AuthStackParamList>();
 const AppStack = createNativeStackNavigator<AppStackParamList>();
 
@@ -52,10 +53,16 @@ const AppNavigation = () => {
       {isAuthenticated ? (
         <AppStack.Navigator initialRouteName="ScreenHome">
         <AppStack.Screen
-          name="ScreenHome"
-          component={ScreenHome}
+          name="BottomNavigation"
+          component={BottomNavigation}
           options={{headerShown: false}}
         />
+        <AppStack.Screen
+          name="ScreenMusicPage"
+          component={ScreenMusicPage}
+          options={{headerShown: false}}
+        />
+
             </AppStack.Navigator>
 
       ) : (

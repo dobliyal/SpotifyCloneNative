@@ -1,3 +1,5 @@
+import { HomeData } from "../../Screens/ScreenHome/utils/types";
+
 export type AuthStackParamList = {
     ScreenSplash: undefined;
     ScreenGetstarted: undefined;
@@ -9,5 +11,9 @@ export type AuthStackParamList = {
   
   export type AppStackParamList = {
     ScreenHome: undefined;
+    ScreenFavourite:undefined;
+    ScreenProfile:undefined;
+    BottomNavigation:undefined;
+    ScreenMusicPage: { item: HomeData; index:number}; 
   };
   

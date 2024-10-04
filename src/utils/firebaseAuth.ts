@@ -1,3 +1,4 @@
+import { SignUpFormData } from './../Screens/ScreenRegister/utils/types';
 import auth from '@react-native-firebase/auth';
 import { Alert } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
@@ -5,6 +6,7 @@ import { LoginFormData } from '../Screens/ScreenSignin/utils/types';
 import { setUser } from '../Screens/ScreenSignin/redux/authSlice';
 import { AppDispatch } from './redux/store';
 import { useEffect } from 'react';
+import firestore from '@react-native-firebase/firestore';
 
 
 
@@ -33,9 +35,21 @@ export const loginUser = async (email: string, password: string, dispatch: AppDi
 
 
 
-export const signupUser = async (user: LoginFormData, dispatch: AppDispatch) => {
+export const signupUser = async (user: SignUpFormData, dispatch: AppDispatch) => {
   try {
     const UserCred = await auth().createUserWithEmailAndPassword(user.email, user.password);
+    // FirebaseFirestore.instance.collection('Users').set(
+    //   {
+    //     'name':user.email,
+    //     'email':UserCred.user?.email,
+    //   }
+    // );
+
+    await firestore().collection('Users').doc(UserCred.user?.uid).set({
+      name: user.username,  
+      email: UserCred.user?.email,
+    });
+
     const token = await UserCred.user.getIdToken();
     await AsyncStorage.setItem('token', token);
     const newUser: LoginFormData = {

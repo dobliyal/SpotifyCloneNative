@@ -10,6 +10,7 @@ import AppNavigation from './src/Navigation/AppNavigation'
 import { Provider } from 'react-redux'
 import store from './src/utils/redux/store'
 import ScreenHome from './src/Screens/ScreenHome/ScreenHome'
+import ScreenMusicPage from './src/Screens/ScreenMusicPage/ScreenMusicPage'
 
 const App = () => {
   return (
@@ -17,6 +18,7 @@ const App = () => {
   <AppNavigation/>
   {/* <ScreenHome/> */}
     </Provider>
+  // <ScreenMusicPage/>
   )
 }
 
