@@ -7,6 +7,8 @@ import { artistData } from '../../utils/data/data'
 import { HomeData } from './utils/types'
 import { useNavigation } from '@react-navigation/native';
 import { ScreenHomeProp } from './utils/types';
+import Header from '../../CommonComponent/Header'
+
 
 const ScreenHome = () => {
   const navigation = useNavigation<ScreenHomeProp>();
@@ -18,7 +20,6 @@ const ScreenHome = () => {
     onPress={()=>navigation.navigate("ScreenMusicPage",
       {
         item:item,
-        index:index
       }
     )
     }>
@@ -34,7 +35,7 @@ const ScreenHome = () => {
 
   return (
     <ScrollView style={styles.container}>
-      <HomeHeader/>
+      <Header/>
       <View style={styles.top}>
       <FrameHome/>
       <Image 

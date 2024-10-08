@@ -14,6 +14,6 @@ export type AuthStackParamList = {
     ScreenFavourite:undefined;
     ScreenProfile:undefined;
     BottomNavigation:undefined;
-    ScreenMusicPage: { item: HomeData; index:number}; 
+    ScreenMusicPage: { item: HomeData}; 
   };
   
